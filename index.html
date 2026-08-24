@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Kadek Mahesa — Portfolio</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap"
+			rel="stylesheet"
+		/>
+
+		<!--
+  ============================================================
+  PANDUAN SINGKAT UNTUK KADEK
+  ============================================================
+  File ini punya 3 bagian besar:
+    1. Bagian dalam tag style -> semua tampilan (warna, jarak, animasi)
+    2. Bagian dalam tag body  -> teks yang JARANG berubah (nama, hero,
+                                 about, experience, contact)
+    3. Bagian dalam tag script -> paling atas ada dict (semua teks
+                                 dua bahasa) dan "WORK CONFIG" (cari
+                                 komentar "EDIT DI SINI") — itu bagian
+                                 yang perlu kamu ubah kalau mau ganti
+                                 link Drive atau link project Website/
+                                 Game Development.
+  Bagian lain di script (animasi ketik nama, animasi muncul saat
+  discroll, penanda menu aktif) sengaja tidak perlu disentuh — ada
+  komentar "JANGAN DIUBAH" di situ.
+  ============================================================
+-->
+
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<header>
+			<nav class="wrap">
+				<div class="avail">
+					<span class="dot"></span><span data-i18n="avail">Available for work</span>
+				</div>
+				<div class="nav-right">
+					<div class="navlinks">
+						<a href="#about" data-i18n="navAbout">About</a>
+						<a href="#work" data-i18n="navWork">Work</a>
+						<a href="#services" data-i18n="navServices">Services</a>
+						<a href="#experience" data-i18n="navExperience">Experience</a>
+						<a href="#achievements" data-i18n="navAchievements">Achievements</a>
+						<a href="#contact" data-i18n="navContact">Contact</a>
+					</div>
+					<div class="lang-switch" data-lang="en" id="langSwitch">
+						<div class="lang-pill"></div>
+						<button type="button" data-lang-btn="en" class="active">EN</button>
+						<button type="button" data-lang-btn="id">ID</button>
+					</div>
+				</div>
+			</nav>
+		</header>
+
+		<main>
+			<!-- HERO -->
+			<section class="hero" id="hero" style="padding-bottom: 0">
+				<div class="wrap">
+					<div class="eyebrow mono" data-i18n="heroEyebrow">
+						Computer Science Student &amp; Creative Editor
+					</div>
+					<h1 id="heroName">
+						<span class="type-dots"><span></span><span></span><span></span></span>
+					</h1>
+					<p class="role reveal" data-i18n="heroRole">
+						A <b>Computer Science</b> student and self-taught editor from Bali, cutting audio,
+						video, and visuals for stages, screens, and startups — now expanding into <b>web</b> and
+						<b>game development</b>.
+					</p>
+					<div class="meta reveal">
+						<div>
+							<span data-i18n="metaBasedLabel">Based in</span><span>Malang, Indonesia</span>
+						</div>
+						<div>
+							<span data-i18n="metaStudyLabel">Studying</span
+							><span data-i18n="metaStudyValue">Computer Science, BINUS @Malang</span>
+						</div>
+						<div>
+							<span data-i18n="metaBackgroundLabel">Background</span
+							><span data-i18n="metaBackgroundValue">Software Engineering, SMK TI Bali Global</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="scrubber">
+					<div class="wrap">
+						<div class="track"><div class="fill" id="scrubFill"></div></div>
+						<div class="scrub-points" id="scrubPoints">
+							<a href="#hero" data-section="hero"
+								><span class="dot"></span><span data-i18n="scrubIntro">Intro</span></a
+							>
+							<a href="#about" data-section="about"
+								><span class="dot"></span><span data-i18n="scrubAbout">About</span></a
+							>
+							<a href="#work" data-section="work"
+								><span class="dot"></span><span data-i18n="scrubWork">Work</span></a
+							>
+							<a href="#services" data-section="services"
+								><span class="dot"></span><span data-i18n="scrubServices">Services</span></a
+							>
+							<a href="#experience" data-section="experience"
+								><span class="dot"></span><span data-i18n="scrubExperience">Experience</span></a
+							>
+							<a href="#achievements" data-section="achievements"
+								><span class="dot"></span><span data-i18n="scrubAchievements">Achievements</span></a
+							>
+							<a href="#contact" data-section="contact"
+								><span class="dot"></span><span data-i18n="scrubContact">Contact</span></a
+							>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- ABOUT -->
+			<section id="about">
+				<div class="wrap">
+					<div class="section-head reveal">
+						<h2 data-i18n="sectionAbout">About</h2>
+						<div class="rule"></div>
+					</div>
+
+					<div class="about-grid reveal">
+						<div class="portrait"></div>
+						<div class="about-body">
+							<p data-i18n="aboutP1">
+								I'm <b>I Kadek Mahesa Arta Wibawa</b>, born in 2008 and originally from Bali. I'm
+								currently studying <b>Computer Science</b> at BINUS University, Malang campus —
+								pairing that with a self-driven practice in editing and development that started
+								long before I picked a major.
+							</p>
+							<p data-i18n="aboutP2">
+								Before university, I studied at <b>SMK TI Bali Global Denpasar</b>, majoring in
+								Software Engineering (Rekayasa Perangkat Lunak), where I first started applying
+								technical thinking to creative work.
+							</p>
+							<p data-i18n="aboutP3">
+								Performing arts has a special place for me too — from being part of a theatre club
+								to helping direct a stage production, storytelling on stage shapes the way I think
+								about pacing and visuals on screen.
+							</p>
+
+							<div class="edu-track">
+								<div class="edu-item">
+									<div class="tc mono">2023 — 2026</div>
+									<h3>SMK TI Bali Global Denpasar</h3>
+									<p data-i18n="eduSub1">Software Engineering (Rekayasa Perangkat Lunak)</p>
+								</div>
+								<div class="edu-item">
+									<div class="tc mono">2026 — present</div>
+									<h3>BINUS University @Malang</h3>
+									<p data-i18n="eduSub2">Computer Science</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- WORK -->
+			<section id="work">
+				<div class="wrap">
+					<div class="section-head reveal">
+						<h2 data-i18n="sectionWork">Work</h2>
+						<div class="rule"></div>
+					</div>
+					<p class="section-intro reveal" data-i18n="workIntro">
+						A working archive of what I've made, grouped by craft. Photos and clips are shown
+						directly — each category's full set lives on Drive.
+					</p>
+
+					<div class="work-grid" id="workGrid"></div>
+				</div>
+			</section>
+
+			<!-- SERVICES -->
+			<section id="services">
+				<div class="wrap">
+					<div class="section-head reveal">
+						<h2 data-i18n="sectionServices">Services</h2>
+						<div class="rule"></div>
+					</div>
+					<p class="section-intro reveal" data-i18n="servicesIntro">
+						Ways I can help — tap any of these to get in touch.
+					</p>
+
+					<div class="service-grid reveal" id="serviceGrid"></div>
+				</div>
+			</section>
+
+			<!-- EXPERIENCE -->
+			<section id="experience">
+				<div class="wrap">
+					<div class="section-head reveal">
+						<h2 data-i18n="sectionExperience">Experience</h2>
+						<div class="rule"></div>
+					</div>
+
+					<div class="xp-list reveal">
+						<div class="xp-row">
+							<div class="tc mono">01</div>
+							<div>
+								<h3 data-i18n="xpPR">Public Relations</h3>
+								<div class="org">Teater Bagol — high school theatre club</div>
+							</div>
+							<div class="date" data-i18n="xpPRDate">Apr 2024 – Feb 2025</div>
+						</div>
+						<div class="xp-row">
+							<div class="tc mono">02</div>
+							<div>
+								<h3 data-i18n="xpIntern">Internship</h3>
+								<div class="org">PLN Icon Plus</div>
+							</div>
+							<div class="date" data-i18n="xpInternDate">Jul 2024 – Dec 2024</div>
+						</div>
+						<div class="xp-row">
+							<div class="tc mono">03</div>
+							<div>
+								<h3 data-i18n="xpLead">Lead Designer</h3>
+								<div class="org">GamezyGo (Startup)</div>
+							</div>
+							<div class="date" data-i18n="xpLeadDate">Jul 2025 – Aug 2026</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- ACHIEVEMENTS -->
+			<section id="achievements">
+				<div class="wrap">
+					<div class="section-head reveal">
+						<h2 data-i18n="sectionAchievements">Achievements</h2>
+						<div class="rule"></div>
+					</div>
+
+					<div class="achieve-list reveal">
+						<div class="achieve-row">
+							<span class="mark"></span>
+							<div>
+								<h3 data-i18n="ach1Title">Hackathon Winner</h3>
+								<div class="org" data-i18n="ach1Org">iCode Hackathon, 2023</div>
+							</div>
+						</div>
+						<div class="achieve-row">
+							<span class="mark"></span>
+							<div>
+								<h3 data-i18n="ach2Title">Poster Design Competition Winner</h3>
+								<div class="org" data-i18n="ach2Org">
+									National Art Competition (Lomba Seni Nasional)
+								</div>
+							</div>
+						</div>
+						<div class="achieve-row">
+							<span class="mark"></span>
+							<div>
+								<h3 data-i18n="ach3Title">Assistant Director</h3>
+								<div class="org" data-i18n="ach3Org">Stage production, Teater Bagol</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- CONTACT -->
+			<footer id="contact">
+				<div class="wrap">
+					<div class="section-head reveal" style="margin-bottom: 0">
+						<h2 data-i18n="sectionContact">Contact</h2>
+						<div class="rule"></div>
+					</div>
+					<h2 class="reveal" data-i18n="contactHeading">Let's talk about your next edit.</h2>
+
+					<div class="social-grid reveal">
+						<a
+							class="social-cell"
+							href="https://www.instagram.com/aartawibawa"
+							target="_blank"
+							rel="noopener"
+						>
+							<div class="tc mono">INSTAGRAM</div>
+							<div class="handle">@aartawibawa</div>
+						</a>
+						<a
+							class="social-cell"
+							href="https://www.tiktok.com/@dek_.kadek"
+							target="_blank"
+							rel="noopener"
+						>
+							<div class="tc mono">TIKTOK</div>
+							<div class="handle">@dek_.kadek</div>
+						</a>
+						<a
+							class="social-cell"
+							href="https://www.linkedin.com/in/i-kadek-mahesa-arta-wibawa-260100317"
+							target="_blank"
+							rel="noopener"
+						>
+							<div class="tc mono">LINKEDIN</div>
+							<div class="handle">I Kadek Mahesa Arta Wibawa</div>
+						</a>
+						<a
+							class="social-cell"
+							href="https://wa.me/6285792116108"
+							target="_blank"
+							rel="noopener"
+						>
+							<div class="tc mono">WHATSAPP</div>
+							<div class="handle">+62 857-9211-6108</div>
+						</a>
+					</div>
+
+					<div class="foot-bottom">© 2026 I Kadek Mahesa Arta Wibawa</div>
+				</div>
+			</footer>
+		</main>
+
+		<!-- LIGHTBOX: popup yang muncul saat thumbnail foto/video di bagian Work diklik.
+		     Isinya diisi otomatis lewat JavaScript (lihat "LIGHTBOX" di script.js) —
+		     tidak perlu diubah di sini. -->
+		<div class="lightbox" id="lightbox">
+			<div class="lightbox-inner">
+				<button type="button" class="lightbox-close" id="lightboxClose" aria-label="Close">
+					✕
+				</button>
+				<div class="lightbox-media" id="lightboxMedia"></div>
+			</div>
+		</div>
+
+		<script src="script.js"></script>
+	</body>
+</html>
