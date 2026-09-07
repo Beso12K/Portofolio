@@ -310,8 +310,8 @@ const workCategories = [
 		items: [
 			{
 				type: "video",
-				provider: "drive",
-				src: "https://drive.google.com/file/d/1PKHJ68RMHOuJRYVTVS2cnEbCs-idT6Fi/view?usp=sharing",
+				provider: "youtube",
+				src: "https://www.youtube.com/shorts/uDngGWpP4RU",
 				poster: "Asset/Video/Y1.jpg",
 				ratio: "ar1",
 			},
@@ -324,8 +324,8 @@ const workCategories = [
 			},
 			{
 				type: "video",
-				provider: "drive",
-				src: "https://drive.google.com/file/d/1jTMZRG9k-2xdb1KpTCqAiwOK4sROLO_K/view?usp=drive_link",
+				provider: "youtube",
+				src: "https://www.youtube.com/shorts/0g7dc96cBsQ",
 				poster: "Asset/Video/Y3.jpg",
 				ratio: "ar1",
 			},
