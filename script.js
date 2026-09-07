@@ -66,6 +66,8 @@ const dict = {
 	xpInternDate: { en: "Jul 2024 – Dec 2024", id: "Jul 2024 – Des 2024" },
 	xpLead: { en: "Lead Designer", id: "Lead Designer" },
 	xpLeadDate: { en: "Jul 2025 – Aug 2026", id: "Jul 2025 – Ags 2026" },
+	xp4: { en: "Social Media Manager (Freelance)", id: "Manajer Media Sosial (Freelance)" },
+	xp4Date: { en: "May 2025 - Present", id: "Mei 2025 - Sekarang" },
 	sectionAchievements: { en: "Achievements", id: "Prestasi" },
 	ach1Title: { en: "Hackathon Winner", id: "Juara Hackathon" },
 	ach1Org: { en: "iCode Hackathon, 2023", id: "Hackathon iCode, 2023" },
@@ -73,6 +75,8 @@ const dict = {
 	ach2Org: { en: "National Art Competition (Lomba Seni Nasional)", id: "Lomba Seni Nasional" },
 	ach3Title: { en: "Assistant Director", id: "Asisten Sutradara" },
 	ach3Org: { en: "Stage production, Teater Bagol", id: "Produksi pementasan, Teater Bagol" },
+	ach4Title: { en: "Entrepreneurship Webinar", id: "Webinar Kewirausahaan" },
+	ach4Org: { en: "GIM Foundation", id: "GIM Foundation" },
 	sectionContact: { en: "Contact", id: "Kontak" },
 	contactHeading: { en: "Let's talk about your next edit.", id: "Yuk bahas proyek berikutnya." },
 	driveLink: { en: "Full archive on Drive ↗", id: "Arsip lengkap di Drive ↗" },
@@ -313,8 +317,8 @@ const workCategories = [
 			},
 			{
 				type: "video",
-				provider: "drive",
-				src: "https://drive.google.com/file/d/1nSsLkT0nkOGhtRJ8_7u30TTmXicZDAAO/view?usp=drive_link",
+				provider: "youtube",
+				src: "https://www.youtube.com/shorts/co52fp8-dvE",
 				poster: "Asset/Video/Y2.jpg",
 				ratio: "ar1",
 			},
@@ -438,9 +442,71 @@ const workCategories = [
 		items: [
 			{ type: "image", src: "Asset/Foto/O1.jpg", ratio: "ar1" },
 			{ type: "image", src: "Asset/Foto/O2.jpg", ratio: "ar1" },
-			{ type: "image", src: "Asset/Foto/O3.jpg", ratio: "ar1" },
+			{
+				type: "video",
+				provider: "drive",
+				src: "https://drive.google.com/file/d/1BybvKj5rCSdInrSaLOeQ-wFrCh18M9PZ/view?usp=sharing",
+				ratio: "ar1",
+				poster: "Asset/Video/InfiniteC.jpg",
+			},
 		],
 	}, // Other Editing
+];
+
+/* ================================================================
+   ACHIEVEMENTS CONFIG — EDIT DI SINI untuk nambah bukti sertifikat
+   ----------------------------------------------------------------
+   Judul & organisasi tiap prestasi masih diatur lewat dict di atas
+   (ach1Title, ach1Org, dst) — tidak usah diubah di sini, cukup
+   edit di dict kalau mau ganti teksnya.
+
+   Di sini kamu cuma perlu isi "certs": daftar sertifikat untuk
+   prestasi itu. Boleh 0 (dikosongkan "[]" — nanti baris prestasinya
+   tampil tanpa foto sertif), boleh 1, boleh banyak sekaligus (misal
+   3 sertif iCode buat 3 sesi lomba yang beda):
+
+     certs: [
+       { src: "Asset/Sertif/icode-sesi1.jpg" },
+       { src: "Asset/Sertif/icode-sesi2.jpg" },
+       { src: "Asset/Sertif/icode-sesi3.jpg" },
+     ]
+
+   Klik salah satu foto sertifnya nanti buka popup foto besar, sama
+   persis seperti thumbnail foto di bagian Work. Kalau file sertifnya
+   dari Google Drive (bukan disimpan lokal di folder Asset/), tambah
+   "provider": "drive" seperti di WORK CONFIG:
+
+     { src: "https://drive.google.com/file/d/FILE_ID/view?usp=sharing", provider: "drive" }
+
+   "i" harus sama dengan nomor di ach{i}Title / ach{i}Org pada dict.
+   Urutan baris di halaman mengikuti urutan array ini dari atas ke
+   bawah, sama seperti workCategories.
+   ================================================================ */
+const achievements = [
+	{
+		i: 1,
+		certs: [
+			{ src: "Asset/Sertif/Icode1.jpg" }, // sertif sesi 1 — isi src-nya
+			{ src: "Asset/Sertif/Icode2.jpg" }, // sertif sesi 2
+			{ src: "Asset/Sertif/Icode3.jpg" }, // sertif sesi 3
+		],
+	}, // Hackathon Winner (iCode)
+	{
+		i: 2,
+		certs: [
+			{ src: "Asset/Sertif/PosterLSN.jpg" }, // sertif lomba poster
+		],
+	}, // Poster Design Competition Winner
+	{
+		i: 4,
+		certs: [
+			{ src: "Asset/Sertif/WebinarBisnis.jpg" }, // sertif webinar
+		],
+	}, // Assistant Director — belum ada sertif, boleh dikosongkan begini
+	{
+		i: 3,
+		certs: [],
+	}, // <- Webinar
 ];
 
 /* ---------------- build work grid (tidak perlu diubah) ---------------- */
@@ -556,7 +622,12 @@ function openLightbox(type, src, provider) {
 
 	if (type === "video" && provider === "youtube") {
 		const id = extractYouTubeId(src);
-		lightboxMedia.innerHTML = `<iframe src="https://www.youtube.com/embed/${id}?autoplay=1&rel=0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>`;
+		// youtube-nocookie.com + referrerpolicy di bawah ini adalah perbaikan untuk
+		// "Error 153: Video player configuration error" — errornya muncul kalau
+		// browser/halaman tidak mengirim header referrer yang YouTube butuhkan
+		// untuk memverifikasi embed-nya (misalnya waktu dites lewat file lokal,
+		// bukan lewat domain http/https beneran seperti GitHub Pages).
+		lightboxMedia.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>`;
 	} else if (type === "video" && provider === "drive") {
 		const id = extractDriveId(src);
 		lightboxMedia.innerHTML = `<iframe src="https://drive.google.com/file/d/${id}/preview" allow="autoplay" allowfullscreen></iframe>`;
@@ -582,8 +653,10 @@ document.addEventListener("keydown", (e) => {
 });
 
 // klik pada thumbnail foto/video (bukan yang tipe "linkout") -> buka lightbox
-grid.addEventListener("click", (e) => {
-	const thumb = e.target.closest(".thumb[data-media-src]");
+// didengarkan di seluruh halaman (bukan cuma #workGrid) supaya foto sertifikat
+// di bagian Achievements ikut bisa dibuka lewat popup yang sama.
+document.addEventListener("click", (e) => {
+	const thumb = e.target.closest("[data-media-src]");
 	if (!thumb) return;
 	openLightbox(thumb.dataset.mediaType, thumb.dataset.mediaSrc, thumb.dataset.mediaProvider);
 });
@@ -597,6 +670,29 @@ for (let i = 0; i < 6; i++) {
 	a.innerHTML = `<span class="name" data-i18n="svc${i}"></span><span class="arrow mono">→</span>`;
 	serviceGrid.appendChild(a);
 }
+
+/* ---------------- build achievements list (tidak perlu diubah) ---------------- */
+const achieveList = document.getElementById("achieveList");
+achievements.forEach((ach) => {
+	const row = document.createElement("div");
+	row.className = "achieve-row";
+
+	let certsHtml = "";
+	(ach.certs || []).forEach((cert, idx) => {
+		if (!cert.src) return; // src kosong -> jangan tampilkan thumbnail sertif
+		const provider = cert.provider || "local";
+		certsHtml += `<div class="cert-thumb" style="background-image:url('${cert.src}')" data-media-type="image" data-media-src="${cert.src}" data-media-provider="${provider}"><span class="badge">Cert ${String(idx + 1).padStart(2, "0")}</span></div>`;
+	});
+
+	row.innerHTML = `
+    <span class="mark"></span>
+    <div class="achieve-body">
+      <h3 data-i18n="ach${ach.i}Title"></h3>
+      <div class="org" data-i18n="ach${ach.i}Org"></div>
+      ${certsHtml ? `<div class="cert-row">${certsHtml}</div>` : ""}
+    </div>`;
+	achieveList.appendChild(row);
+});
 
 /* ---------------- i18n apply ---------------- */
 function applyLang(lang) {
