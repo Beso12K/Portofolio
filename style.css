@@ -379,7 +379,7 @@ section {
 }
 .portrait {
 	aspect-ratio: 4/5;
-	background: var(--green-tint) url("asset/ES402570.jpg") center/cover no-repeat;
+	background: var(--green-tint) url("Asset/ES402570.jpg") center/cover no-repeat;
 	border: 1px solid var(--green-line);
 	display: flex;
 	align-items: center;
